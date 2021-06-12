@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./js/utils.js"></script>
+    <script src="./js/turmite.js"></script>
+    <script src="./js/lifelike.js"></script>
+    <script src="./js/automata.js"></script>
+    <script src="./js/script.js"></script>
+    <title>Cellular Automata</title>
+</head>
+<body>
+    <div id="controls">
+        <div id="turmite" class="automaton">
+            <h1>Turmite</h1>
+            <button class="start">Start</button>
+            <textarea class="rules" placeholder="rule"></textarea>
+            <div class="show">?</div>
+            <div class="hide">
+                <p>The rule should be a JSON object in the following format:</p>
+                <pre>
+{
+    "colorTable": [ [255, 255, 255], [0, 0, 0] ], // list of colors for each state represented by a list containing the R, G, and B values
+    "transitionTable": [
+        [ { "write": 1, "turn": "CW", "state": 0 }, { "write": 1, "turn": "CW", "state": 1 } ], // transitions for first state in this row
+        [ { "write": 0, "turn": "N", "state": 0 }, { "write": 0, "turn": "N", "state": 1 } ] // transitions for second state in this row
+//           ^ transition for first color            ^ transitions for second color
+//               in this column                              in this column
+    ]
+}
+// possible turns are clockwise (CW), counterclockwise (CCW), none (N), and u-turn (UT)
+                </pre>
+            </div>
+            <button class="random">Random</button>
+            <h3>Presets</h3>
+            <button class="preset">Langton's Ant</button><br>
+            <button class="preset">Squares in Octagons</button>
+        </div>
+        <br>
+        <div id="lifelike" class="automaton">
+            <h1>Lifelike</h1>
+            <button class="start">Start</button>
+            <textarea class="rules" placeholder="rule"></textarea>
+            <div class="show">?</div>
+            <div class="hide">
+                <p>The rule should be a JSON object in the following format:</p>
+                <pre>
+{
+    "occurrence": 0.5, // occurrence rate of random cell groups
+    "size": 1, // size of random cell groups
+    "birth": [3], // number of neighbors that will make a dead cells alive
+    "survive": [2, 3] // number of neighbors that will allow a cell to survive
+}
+                </pre>
+            </div>
+            <button class="random">Random</button>
+            <h3>Presets</h3>
+            <button class="preset">Life</button><br>
+            <button class="preset">Replicator</button>
+        </div>
+        <p>Press Esc to return from the simulation</p>
+    </div>
+    <canvas id="display"></canvas>
+</body>
+</html>
