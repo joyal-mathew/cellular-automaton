@@ -1,11 +1,17 @@
 html, body {
     height: 100%;
     margin: 0;
+    background-color: lightgray;
 }
 
 #controls {
     max-width: 50%;
     margin: 10px;
+}
+
+.automaton {
+    background-color: white;
+    padding: 2%;
 }
 
 .show {
