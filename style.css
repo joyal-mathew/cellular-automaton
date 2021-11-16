@@ -5,13 +5,22 @@ html, body {
 }
 
 #controls {
-    max-width: 50%;
     margin: 10px;
+    width: 90vw;
 }
 
 .automaton {
     background-color: white;
     padding: 2%;
+    width: 100%;
+}
+
+.json {
+    color: darkblue;
+}
+
+.comment {
+    color: darkgreen;
 }
 
 .show {

@@ -49,6 +49,9 @@ window.onload = () => {
     document.querySelector("#lifelike .random").onclick = () => {
         lifelikeRules.value = randomLifelike();
     };
+    document.querySelector("#turmite .random").onclick = () => {
+        turmiteRules.value = randomTurmite();
+    };
 
     for (const element of document.getElementsByClassName("automaton")) {
         const show = document.querySelector(`#${element.id} .show`);

@@ -37,3 +37,34 @@ function Turmite(rule, cellsWidth, cellsHeight) {
         },
     };
 }
+
+function randomTurmite() {
+    const states = Array(1 + Math.floor(Math.random() * 8)).fill().map(() => []);
+    const alphabet = [...Array(1 + Math.floor(Math.random() * 8)).keys()];
+    const colorTable = Array(alphabet.length).fill().map(() => randomColor());
+    const transitionTable = [];
+    const turns = [ "CW", "CCW", "UT" ];
+
+    for (let i = 0; i < states.length; ++i) {
+        const stateTable = [];
+        for (let j = 0; j < alphabet.length; ++j) {
+            stateTable.push({
+                write: Math.random() * alphabet.length | 0,
+                turn: turns[Math.random() * turns.length | 0],
+                state: Math.random() * states.length | 0,
+            });
+        }
+        transitionTable.push(stateTable);
+    }
+
+    return JSON.stringify({
+        colorTable,
+        transitionTable,
+    }, (_, v) => v instanceof Array ? JSON.stringify(v) : v, 2).replace(/\"\[/g, '[')
+                                                                .replace(/\]\"/g,']')
+                                                                .replace(/\\\"/g,'"');
+}
+
+function randomColor() {
+    return Array(3).fill().map(() => Math.random() * 256 | 0);
+}

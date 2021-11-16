@@ -21,17 +21,17 @@
             <div class="show">?</div>
             <div class="hide">
                 <p>The rule should be a JSON object in the following format:</p>
-                <pre>
+                <pre class="json">
 {
-    "colorTable": [ [255, 255, 255], [0, 0, 0] ], // list of colors for each state represented by a list containing the R, G, and B values
+    "colorTable": [ [255, 255, 255], [0, 0, 0] ], <span class="comment">// list of colors for each state represented by a list containing the R, G, and B values</span>
     "transitionTable": [
-        [ { "write": 1, "turn": "CW", "state": 0 }, { "write": 1, "turn": "CW", "state": 1 } ], // transitions for first state in this row
-        [ { "write": 0, "turn": "N", "state": 0 }, { "write": 0, "turn": "N", "state": 1 } ] // transitions for second state in this row
-//           ^ transition for first color            ^ transitions for second color
-//               in this column                              in this column
+        [ { "write": 1, "turn": "CW", "state": 0 }, { "write": 1, "turn": "CW", "state": 1 } ], <span class="comment">// transitions for first state in this row</span>
+        [ { "write": 0, "turn": "N", "state": 0 }, { "write": 0, "turn": "N", "state": 1 } ] <span class="comment">// transitions for second state in this row</span>
+<span class="comment">//           ^ transition for first color            ^ transitions for second color</span>
+<span class="comment">//               in this column                              in this column</span>
     ]
 }
-// possible turns are clockwise (CW), counterclockwise (CCW), none (N), and u-turn (UT)
+<span class="comment">// possible turns are clockwise (CW), counterclockwise (CCW), none (N), and u-turn (UT)</span>
                 </pre>
             </div>
             <button class="random">Random</button>
@@ -47,12 +47,12 @@
             <div class="show">?</div>
             <div class="hide">
                 <p>The rule should be a JSON object in the following format:</p>
-                <pre>
+                <pre class="json">
 {
-    "occurrence": 0.5, // occurrence rate of random cell groups
-    "size": 1, // size of random cell groups
-    "birth": [3], // number of neighbors that will make a dead cells alive
-    "survive": [2, 3] // number of neighbors that will allow a cell to survive
+    "occurrence": 0.5, <span class="comment">// occurrence rate of random cell groups</span>
+    "size": 1, <span class="comment">// size of random cell groups</span>
+    "birth": [3], <span class="comment">// number of neighbors that will make a dead cells alive</span>
+    "survive": [2, 3] <span class="comment">// number of neighbors that will allow a cell to survive</span>
 }
                 </pre>
             </div>
@@ -61,7 +61,7 @@
             <button class="preset">Life</button><br>
             <button class="preset">Replicator</button>
         </div>
-        <p>Press Esc to return from the simulation</p>
+        <p><b>Press Esc to return from the simulation</b></p>
     </div>
     <canvas id="display"></canvas>
 </body>
